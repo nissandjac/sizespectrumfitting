@@ -111,3 +111,5 @@ specsum %>%
   xlab('Length')
 
 save(specsum, specsum_biomass, file='analysis/North-Sea/NS_survey_spectra.Rdata')
+
+write.csv(specsum,'NS_numberspec.csv')
