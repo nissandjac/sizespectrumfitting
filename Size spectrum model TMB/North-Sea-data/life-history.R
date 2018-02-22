@@ -1,7 +1,9 @@
 require(rfishbase)
+require(dplyr)
 
 load('ICES_catch.Rdata')
 spp <- unique(ices_catch$SPECIES_NAME)[-2]
+spp[spp == 'Ammodytes spp'] <- 'Ammodytes marinus'
 lw  <- rfishbase::length_weight(spp)
 g   <- rfishbase::popgrowth(spp)
 

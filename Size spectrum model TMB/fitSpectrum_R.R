@@ -1,6 +1,5 @@
-#plot(Mtest[,50], type = 'l')
-
-setwd("C:/Users/Nis/Dropbox/NOAA/Size spectrum model TMB")
+# direc<-"~/GitHub/sizespectrumfitting/Size spectrum model TMB"
+# setwd(direc)
 source('load_files.R')
 source('calcSSB.R')
 source('YieldCalc.R')
@@ -17,7 +16,9 @@ param$tEnd <- 50
 
 
 # Read the ICES data 
-load('ICES_catch.Rdata')
+load('ICES_catch.Rdata') # Catch
+LH <- read.csv('North-Sea-data/life_history.csv')
+LH <- LH[order(LH$Winf),]
 
 df <-list(        wlength = param$wlength,
                   nspecies = param$nSpecies,
