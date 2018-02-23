@@ -21,10 +21,13 @@ ices_catch <- icc_ag %>%
   filter(!SPECIES_NAME %in% c("Crangon crangon",
                               "Mytilus edulis",
                               "Cerastoderma edule",
-                              "Nephrops norvegicus"),
+                              "Nephrops norvegicus",
+                              "Pecten maximus"),
          SPECIES_NAME %in% c(icc_sp,
                              'Eutrigla gurnardus')) %>%
   arrange(YEAR, desc(VALUE))
+
+ices_catch$SPECIES_NAME[grepl("Ammodyt",ices_catch$SPECIES_NAME)] <- "Ammodytes marinus"
 
 ices_catch_ag <- ices_catch %>% group_by(YEAR) %>%
   summarise(sum(VALUE))
